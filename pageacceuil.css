@@ -1,0 +1,148 @@
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+body {
+    font-family: 'Poppins', sans-serif;
+    background-color: rgb(221, 246, 253);
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    min-height: 100vh;
+    margin: 0;
+}
+
+.container {
+    background: rgb(255, 255, 255);
+    padding: 30px;
+    border-radius: 10px;
+    box-shadow: 0px 4px 15px rgb(32, 153, 213);
+    text-align: center;
+    width: 90%;
+    max-width: 400px;
+    transition: transform 0.3s ease, box-shadow 0.3s ease;
+}
+
+.container:hover {
+    transform: translateY(-5px);
+    box-shadow: 0px 6px 20px rgba(42, 169, 232, 0.4);
+}
+
+.logo {
+    font-size: 50px;
+    color: rgb(42, 169, 232);
+    margin-bottom: 10px;
+}
+
+h2 {
+    color: #333;
+    margin-bottom: 20px;
+    font-size: 24px;
+}
+
+.input-group {
+    display: flex;
+    align-items: center;
+    background: #f1f1f1;
+    border-radius: 5px;
+    padding: 10px;
+    margin-bottom: 15px;
+    transition: background 0.3s ease;
+}
+
+.input-group:hover {
+    background: #e1e1e1;
+}
+
+.input-group i {
+    color: rgb(42, 169, 232);
+    margin-right: 10px;
+}
+
+.input-group input, .input-group select {
+    border: none;
+    background: none;
+    outline: none;
+    flex: 1;
+    font-size: 16px;
+    font-family: 'Poppins', sans-serif;
+}
+
+.input-group select {
+    appearance: none;
+    cursor: pointer;
+}
+
+.btn {
+    background: rgb(42, 169, 232);
+    color: white;
+    border: none;
+    padding: 10px;
+    width: 100%;
+    border-radius: 5px;
+    cursor: pointer;
+    font-size: 16px;
+    transition: background 0.3s ease, transform 0.2s ease;
+}
+
+.btn:hover {
+    background: rgb(35, 150, 210);
+    transform: scale(1.05);
+}
+
+.switch {
+    margin-top: 10px;
+    font-size: 14px;
+}
+
+.switch a {
+    color: rgb(42, 169, 232);
+    text-decoration: none;
+    font-weight: bold;
+    transition: color 0.3s ease;
+}
+
+.switch a:hover {
+    color: rgb(35, 150, 210);
+    text-decoration: underline;
+}
+
+@media (max-width: 768px) {
+    h2 {
+        font-size: 22px;
+    }
+
+    .container {
+        padding: 20px;
+    }
+
+    .input-group {
+        padding: 8px;
+    }
+
+    .btn {
+        font-size: 14px;
+        padding: 8px;
+    }
+
+    .switch {
+        font-size: 12px;
+    }
+}
+
+@media (max-width: 480px) {
+    h2 {
+        font-size: 20px;
+    }
+
+    .container {
+        width: 100%;
+        border-radius: 0;
+    }
+
+    .logo {
+        font-size: 40px;
+    }
+}

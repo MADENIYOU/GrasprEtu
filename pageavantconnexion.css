@@ -1,0 +1,130 @@
+/* Global */
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    font-family: 'Arial', sans-serif;
+}
+
+body {
+    background: url('background.jpg') no-repeat center center/cover;
+    color: #34495e;
+    text-align: center;
+}
+
+/* Header */
+header {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 20px 50px;
+    background: rgb(249, 249, 250);
+    position: fixed;
+    width: 100%;
+    top: 0;
+}
+
+.logo {
+    font-size: 24px;
+    font-weight: bold;
+}
+
+.logo span {
+    color: rgb(32, 153, 213);
+}
+
+nav ul {
+    list-style: none;
+    display: flex;
+}
+
+nav ul li {
+    margin: 0 15px;
+}
+
+nav ul li a {
+    color: #34495e;
+    text-decoration: none;
+    font-weight: bold;
+}
+
+.btn {
+    background: rgb(32, 153, 213);
+    color: white;
+    padding: 10px 20px;
+    text-decoration: none;
+    border-radius: 5px;
+}
+
+/* Hero Section */
+.hero {
+    height: 100vh;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    background: rgb(221, 246, 253);
+}
+
+.hero h1 {
+    font-size: 3em;
+}
+
+.hero span {
+    color: rgb(32, 153, 213);
+}
+
+/* Section des services */
+.services {
+    display: flex;
+    justify-content: center;
+    gap: 30px;
+    padding: 50px 0;
+    margin-top: 20px; /* Ajuste cet espace selon le besoin */
+}
+
+/* Style des boutons carrés */
+.service {
+    background: white;
+    color: rgb(32, 153, 213); /* Bleu */
+    padding: 50px;
+    width: 220px;
+    height: 220px;
+    border-radius: 10px;
+    text-align: center;
+    box-shadow: 0px 4px 10px rgba(0, 0, 0, 0.2);
+    transition: transform 0.3s ease, box-shadow 0.3s ease;
+    cursor: pointer;
+    display: flex;
+    justify-content: center;
+    gap: 30px;
+    
+    margin-top: -250px; 
+}
+
+/* Icônes */
+.service i {
+    font-size: 50px;
+    margin-bottom: 15px;
+    color: rgb(32, 153, 213);
+}
+
+/* Effet de survol */
+.service:hover {
+    transform: translateY(-10px);
+    box-shadow: 0px 10px 20px rgba(0, 0, 0, 0.3);
+    background: rgb(32, 153, 213);
+    color: white;
+}
+
+.service:hover i {
+    color: white;
+}
+.services {
+    display: flex;
+    justify-content: center;
+    gap: 30px;
+    padding: 30px 0;  /* Diminue l'espace */
+    margin-top: -50px; /* Remonte les boutons */
+}
+
+

@@ -1,0 +1,135 @@
+/* Général */
+body {
+    font-family: Arial, sans-serif;
+    margin: 0;
+    padding: 0;
+    display: flex;
+    background: #5fb70c;
+    color: #333;
+}
+
+/* Barre latérale */
+.sidebar {
+    width: 250px;
+    height: 100vh;
+    background: #007BFF;
+    color: white;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+    position: fixed;
+    left: 0;
+    top: 0;
+    padding: 20px;
+}
+
+.logo h2 {
+    text-align: center;
+    margin-bottom: 20px;
+}
+
+.sidebar nav ul {
+    list-style: none;
+    padding: 0;
+}
+
+.sidebar nav ul li {
+    margin: 20px 0;
+}
+
+.sidebar nav ul li a {
+    color: white;
+    text-decoration: none;
+    font-size: 18px;
+    display: flex;
+    align-items: center;
+}
+
+.sidebar nav ul li a i {
+    margin-right: 10px;
+}
+
+/* Déconnexion bouton */
+.logout {
+    background: red;
+    padding: 10px;
+    border-radius: 5px;
+    text-align: center;
+    display: block;
+}
+
+.logout:hover {
+    background: darkred;
+}
+
+/* Contenu principal */
+.content {
+    margin-left: 250px; /* Décalage pour laisser la place à la barre latérale */
+    padding: 40px;
+    width: calc(100% - 250px);
+}
+
+.content h1 {
+    text-align: center;
+    margin-bottom: 30px;
+}
+
+/* Conteneur des cartes */
+.card-container {
+    display: grid;
+    grid-template-columns: repeat(2, 1fr);
+    gap: 20px;
+    justify-items: center;
+    max-width: 800px;
+    margin: auto;
+}
+
+/* Cartes des fonctionnalités */
+.card {
+    background: white;
+    box-shadow: 0px 4px 10px rgba(0, 0, 0, 0.1);
+    padding: 30px;
+    text-align: center;
+    border-radius: 10px;
+    width: 250px;
+    height: 200px;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    text-decoration: none;
+    color: #007BFF;
+    font-weight: bold;
+    transition: 0.3s;
+}
+
+.card:hover {
+    background: #007BFF;
+    color: white;
+}
+
+.card i {
+    font-size: 40px;
+    margin-bottom: 10px;
+}
+
+/* Responsive */
+@media (max-width: 768px) {
+    .content {
+        margin-left: 0;
+        width: 100%;
+    }
+
+    .sidebar {
+        width: 100px;
+        padding: 10px;
+    }
+
+    .sidebar nav ul li a {
+        font-size: 14px;
+    }
+
+    .card-container {
+        grid-template-columns: 1fr;
+    }
+}
