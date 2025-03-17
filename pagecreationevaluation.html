@@ -1,0 +1,142 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Créer une Évaluation</title>
+    <link rel="stylesheet" href="pagecreationevaluation.css">
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;600&display=swap" rel="stylesheet">
+</head>
+<body>
+    <div class="container">
+        <div class="form-box">
+            <i class="fas fa-book-open logo"></i>
+            <h2>Créer une Évaluation</h2>
+
+            <form id="create-evaluation-form">
+                <div class="input-group">
+                    <i class="fas fa-heading"></i>
+                    <input type="text" id="evaluation-title" placeholder="Titre de l'évaluation" required>
+                </div>
+
+
+              
+                <div class="input-group">
+                    <i class="fas fa-clock"></i>
+                    <input type="number" id="evaluation-duration" placeholder="Durée (en minutes)" required>
+                </div>
+
+                
+                <div id="questions-container">
+                    
+                </div>
+
+                
+                <button type="button" class="btn" onclick="addQuestion()">
+                    <i class="fas fa-plus"></i> Ajouter une question
+                </button>
+
+               
+                <button type="submit" class="btn">Créer l'évaluation</button>
+            </form>
+        </div>
+    </div>
+
+    <script>
+     
+        function addQuestion() {
+            const questionsContainer = document.getElementById('questions-container');
+
+            const questionDiv = document.createElement('div');
+            questionDiv.classList.add('question');
+
+            questionDiv.innerHTML = `
+                <div class="input-group">
+                    <i class="fas fa-question-circle"></i>
+                    <input type="text" placeholder="Question" required>
+                </div>
+                <div class="input-group">
+                    <i class="fas fa-list-ol"></i>
+                    <select class="question-type" onchange="showOptions(this)">
+                        <option value="texte">Réponse texte</option>
+                        <option value="choix_multiple">Choix multiple</option>
+                    </select>
+                </div>
+                <div class="options-container" style="display: none;">
+                    <div class="input-group">
+                        <i class="fas fa-check-circle"></i>
+                        <input type="text" placeholder="Option 1" required>
+                    </div>
+                    <div class="input-group">
+                        <i class="fas fa-check-circle"></i>
+                        <input type="text" placeholder="Option 2" required>
+                    </div>
+                    <button type="button" class="btn-small" onclick="addOption(this)">
+                        <i class="fas fa-plus"></i> Ajouter une option
+                    </button>
+                </div>
+            `;
+
+            questionsContainer.appendChild(questionDiv);
+        }
+
+
+        function showOptions(selectElement) {
+            const optionsContainer = selectElement.closest('.question').querySelector('.options-container');
+            if (selectElement.value === 'choix_multiple') {
+                optionsContainer.style.display = 'block';
+            } else {
+                optionsContainer.style.display = 'none';
+            }
+        }
+
+
+        function addOption(button) {
+            const optionsContainer = button.closest('.options-container');
+            const inputGroup = document.createElement('div');
+            inputGroup.classList.add('input-group');
+
+            inputGroup.innerHTML = `
+                <i class="fas fa-check-circle"></i>
+                <input type="text" placeholder="Nouvelle option" required>
+            `;
+
+            optionsContainer.insertBefore(inputGroup, button);
+        }
+
+ 
+        document.getElementById('create-evaluation-form').addEventListener('submit', function (e) {
+            e.preventDefault();
+            const evaluation = {
+                title: document.getElementById('evaluation-title').value,
+                description: document.getElementById('evaluation-description').value,
+                duration: document.getElementById('evaluation-duration').value,
+                questions: []
+            };
+
+            const questions = document.querySelectorAll('.question');
+            questions.forEach(question => {
+                const questionText = question.querySelector('input[type="text"]').value;
+                const questionType = question.querySelector('.question-type').value;
+                const options = question.querySelectorAll('.options-container input[type="text"]');
+                const questionData = {
+                    text: questionText,
+                    type: questionType,
+                    options: []
+                };
+
+                if (questionType === 'choix_multiple') {
+                    options.forEach(option => {
+                        questionData.options.push(option.value);
+                    });
+                }
+
+                evaluation.questions.push(questionData);
+            });
+
+            console.log('Évaluation créée :', evaluation);
+            alert('Évaluation créée avec succès !');
+        });
+    </script>
+</body>
+</html>

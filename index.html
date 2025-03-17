@@ -1,0 +1,65 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Connexion & Inscription</title>
+    <link rel="stylesheet" href="style.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.2/css/all.min.css">
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;600&display=swap" rel="stylesheet">
+</head>
+<body>
+    <div class="container">
+        <div class="form-box">
+           <i class="fas fa-book logo"></i>
+
+            <h2 id="form-title">Connexion</h2>
+
+            <form id="login-form">
+                <div class="input-group">
+                    <i class="fas fa-user"></i>
+                    <input type="text" placeholder="Nom d'utilisateur" required>
+                </div>
+                <div class="input-group">
+                    <i class="fas fa-lock"></i>
+                    <input type="password" placeholder="Mot de passe" required>
+                </div>
+                <button type="submit" class="btn">Se connecter</button>
+                <p class="switch">Pas encore de compte ? <a href="#" id="switch-to-signup">S'inscrire</a></p>
+            </form>
+
+            <form id="signup-form" style="display: none;">
+                <div class="input-group">
+                    <i class="fas fa-user"></i>
+                    <input type="text" placeholder="Nom complet" required>
+                </div>
+                <div class="input-group">
+                    <i class="fas fa-envelope"></i>
+                    <input type="email" placeholder="Email" required>
+                </div>
+                <div class="input-group">
+                    <i class="fas fa-lock"></i>
+                    <input type="password" placeholder="Mot de passe" required>
+                </div>
+                <button type="submit" class="btn">S'inscrire</button>
+                <p class="switch">Déjà un compte ? <a href="#" id="switch-to-login">Se connecter</a></p>
+            </form>
+        </div>
+    </div>
+
+    <script>
+        document.getElementById('switch-to-signup').addEventListener('click', function() {
+            document.getElementById('login-form').style.display = 'none';
+            document.getElementById('signup-form').style.display = 'block';
+            document.getElementById('form-title').innerText = "Inscription";
+        });
+
+        document.getElementById('switch-to-login').addEventListener('click', function() {
+            document.getElementById('signup-form').style.display = 'none';
+            document.getElementById('login-form').style.display = 'block';
+            document.getElementById('form-title').innerText = "Connexion";
+        });
+    </script>
+</body>
+</html>
+
