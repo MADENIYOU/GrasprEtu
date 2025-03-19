@@ -1,31 +1,31 @@
 import React from "react";
-import ClassCard from "./ClassCard";
-import { getClasses } from "../../lib/getClasses"; // Importez la fonction getClasses
+import MatiereCard from "./ClassCard";
+import { getMatieres } from "../../lib/getMatieres";
 
-interface Class {
+interface Matiere {
   id: string;
   name: string;
   description: string;
   imageUrl: string;
-  redirectUrl: string; // URL de redirection
+  redirectUrl: string;
 }
 
-interface ClassListProps {
-  classes: Class[]; // Props pour les classes
+interface MatiereListProps {
+  matieres: Matiere[];
 }
 
-const ClassList: React.FC<ClassListProps> = ({ classes }) => {
+const MatiereList: React.FC<MatiereListProps> = ({ matieres }) => {
   return (
     <div className="flex flex-col justify-center items-center min-h-screen bg-gray-100 p-4">
       <div className="space-y-5 w-full grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-3 p-4">
-        {classes.map((classItem) => (
-          <ClassCard
-            key={classItem.id}
-            id={classItem.id}
-            name={classItem.name}
-            description={classItem.description}
+        {matieres.map((matiere) => (
+          <MatiereCard
+            key={matiere.id}
+            id={matiere.id}
+            name={matiere.name}
+            description={matiere.description}
             imageUrl="/images/imageCard.jpg"
-            redirectUrl={classItem.redirectUrl}
+            redirectUrl={matiere.redirectUrl}
           />
         ))}
       </div>
@@ -33,26 +33,26 @@ const ClassList: React.FC<ClassListProps> = ({ classes }) => {
   );
 };
 
-// Récupérer les classes côté serveur
+// Récupérer les matieres côté serveur
 export const getServerSideProps = async () => {
-  const classesFromDb = await getClasses();
-  console.log(classesFromDb);
+  const matieresFromDb = await getMatieres(3);
+  console.log(matieresFromDb);
   
-  const classes: Class[] = classesFromDb.map((classItem: { id: any; name: any; }) => ({
-    id: classItem.id,
-    name: classItem.name,
-    description: `Description de la classe ${classItem.name}.`, // Description générique
-    imageUrl: "https://loremflickr.com/g/320/240/team", // Image générique
-    redirectUrl: `/api/classe/${classItem.id}`, // URL de redirection dynamique
+  const matieres: Matiere[] = matieresFromDb.map((matiere: { id: any; name: any; }) => ({
+    id: matiere.id,
+    name: matiere.name,
+    description: `Matière : ${matiere.name}`, // Description dynamique
+    imageUrl: "https://loremflickr.com/g/320/240/book", // Image générique pour les matières
+    redirectUrl: `/matiere/${matiere.id}`, // URL de redirection dynamique pour la matière
   }));
 
-  console.log(classes);
+  console.log(matieres);
 
   return {
     props: {
-      classes, // Passer les classes en tant que props
+      matieres, // Passer les matieres en tant que props
     },
   };
 };
 
-export default ClassList;
+export default MatiereList;
