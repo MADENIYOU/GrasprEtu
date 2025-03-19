@@ -3,7 +3,7 @@ import React from "react";
 
 const Header: React.FC = () => {
   return (
-    <header className="w-full bg-gray-800 mb-6">
+    <header className="w-full bg-gray-900 mb-6">
       <nav className="items-center pt-5 px-4 mx-auto max-w-screen-xl sm:px-8 sm:flex sm:space-x-6">
         <h1 className="text-white font-bold text-4xl xl:text-5xl">
           <span className="bg-gradient-to-r from-purple-500 to-blue-500 text-transparent bg-clip-text">

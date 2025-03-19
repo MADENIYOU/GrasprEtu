@@ -1,17 +1,17 @@
 import { NextRequest, NextResponse } from "next/server";
 import mysql from "mysql2/promise";
 
-// Créer une connexion à la base de données MySQL
+
 const db = await mysql.createConnection({
-  host: "localhost", // Hôte de la base de données
-  user: "root",      // Utilisateur MySQL
-  password: "", // Mot de passe MySQL
-  database: "projet", // Nom de la base de données
+  host: "localhost", 
+  user: "root",      
+  password: "", 
+  database: "projet",
 });
 
 export async function GET(req: NextRequest) {
   try {
-    // Récupérer l'ID de la matière depuis les paramètres de l'URL
+    
     const { searchParams } = new URL(req.url);
     const matiereId = searchParams.get("matiereId");
     console.log(matiereId);
@@ -22,12 +22,11 @@ export async function GET(req: NextRequest) {
         { status: 400 }
       );
     }
-
-    // Récupérer le nom de la matière en fonction de l'ID
+    
     const matiereNom = await getMatiereNomById(matiereId);
-    console.log(matiereNom);
+    console.log("Nom de la matière : ", matiereNom);
 
-    // Si aucun nom de matière n'est trouvé
+    
     if (!matiereNom) {
       return NextResponse.json(
         { error: "Aucune matière trouvée pour cet ID" },
@@ -35,11 +34,11 @@ export async function GET(req: NextRequest) {
       );
     }
 
-    // Récupérer les examens associés à cette matière
+    
     const exams = await getExamsByMatiereNom(matiereNom);
-    console.log(exams);
+    console.log("Les exams récupérés : ", exams);
 
-    // Si aucun examen n'est trouvé pour cette matière
+    
     if (exams.length === 0) {
       return NextResponse.json(
         { error: "Aucun examen trouvé pour cette matière" },
@@ -57,7 +56,7 @@ export async function GET(req: NextRequest) {
   }
 }
 
-// Fonction pour récupérer le nom de la matière en fonction de son ID
+
 async function getMatiereNomById(matiereId: string) {
   const [rows] = await db.execute(`
     SELECT nom_matiere
@@ -72,12 +71,12 @@ async function getMatiereNomById(matiereId: string) {
   return rows[0].nom_matiere;
 }
 
-// Fonction pour récupérer les examens associés à une matière par nom
+
 async function getExamsByMatiereNom(matiereNom: string) {
   const [rows] = await db.execute(`
-    SELECT e.id_exam, e.date_exam, e.sujet
-    FROM exams e
-    JOIN matieres m ON e.matiere_id = m.id
+    SELECT e.id, e.date_limite, e.titre
+    FROM examens e
+    JOIN matieres m ON e.matiere = m.nom_matiere
     WHERE m.nom_matiere = ?
   `, [matiereNom]);
 
@@ -86,8 +85,8 @@ async function getExamsByMatiereNom(matiereNom: string) {
   }
 
   return rows.map((row: any) => ({
-    id_exam: row.id_exam,
-    date_exam: row.date_exam,
-    sujet: row.sujet,
+    id_exam: row.id,
+    date_exam: row.date_limite,
+    sujet: row.titre,
   }));
 }
