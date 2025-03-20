@@ -2,11 +2,13 @@ import { NextRequest, NextResponse } from "next/server";
 import mysql from "mysql2/promise";
 
 const db = await mysql.createConnection({
-  host: "localhost",
-  user: "root",
-  password: "",
-  database: "projet",
+  host: "mysql-n0reyni.alwaysdata.net",
+  user: "n0reyni_sall",
+  password: "passer123",
+  database: "n0reyni_bd",
 });
+
+console.log(db);
 
 export async function GET(req: NextRequest) {
   try {

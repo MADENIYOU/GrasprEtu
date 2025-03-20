@@ -1,9 +1,9 @@
 import React from "react";
 
 interface FooterProps {
-  backgroundColor?: string; // Couleur de fond du footer
-  textColor?: string; // Couleur du texte
-  iconColor?: string; // Couleur des icônes
+  backgroundColor?: string;
+  textColor?: string;
+  iconColor?: string;
 }
 
 const Footer = ({ backgroundColor, textColor, iconColor }: FooterProps) => {
@@ -23,7 +23,7 @@ const Footer = ({ backgroundColor, textColor, iconColor }: FooterProps) => {
         </h1>
           <div className="xl:flex xl:items-center xl:justify-start">
             <p className={`mt-5 text-sm ${textColor || "text-white"} xl:ml-6 xl:mt-0`}>
-              © Copyright 2025 GrasprEval
+              © Copyright 2025 GrasprEtu
             </p>
           </div>
 

@@ -8,10 +8,10 @@ interface Matiere {
 
 // Créer un pool de connexions (configuration à adapter si besoin)
 const pool = mysql.createPool({
-  host: "127.0.0.1",
-  user: "root",
-  password: "",
-  database: "projet",
+  host: "mysql-n0reyni.alwaysdata.net",
+  user: "n0reyni_sall",
+  password: "passer123",
+  database: "n0reyni_bd",
   waitForConnections: true, 
   connectionLimit: 10, 
   queueLimit: 0,

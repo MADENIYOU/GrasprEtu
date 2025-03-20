@@ -5,10 +5,10 @@ import path from "path";
 
 // Configuration de la connexion MySQL
 const dbConfig = {
-  host: "localhost",
-  user: "root",
-  password: "",
-  database: "projet",
+  host: "mysql-n0reyni.alwaysdata.net",
+  user: "n0reyni_sall",
+  password: "passer123",
+  database: "n0reyni_bd",
 };
 
 export async function POST(req: NextRequest) {

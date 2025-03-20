@@ -3,10 +3,10 @@ import mysql from "mysql2/promise";
 
 export async function getStudentGrades() {
   const db = await mysql.createConnection({
-    host: "localhost",
-    user: "root",
-    password: "",
-    database: "projet", // Remplacer par le nom de ta base de données
+    host: "mysql-n0reyni.alwaysdata.net",
+  user: "n0reyni_sall",
+  password: "passer123",
+  database: "n0reyni_bd", // Remplacer par le nom de ta base de données
   });
 
   try {
