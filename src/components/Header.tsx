@@ -1,4 +1,4 @@
-// components/Header.tsx
+
 import React from "react";
 
 const Header: React.FC = () => {
@@ -19,7 +19,7 @@ const Header: React.FC = () => {
             <a href="/Matieres">Matières</a>
           </li>
           <li className="text-gray-200">
-            <a href="/Chat">ChatBot</a>
+            <a href="https://chat-delta-rose.vercel.app/chat">ChatBot</a>
           </li>
         </ul>
       </nav>
