@@ -31,6 +31,7 @@ const ExamDetails = () => {
       return;
     }
 
+    
     fetch(`/api/examens?id_exam=${id_exam}`)
       .then((res) => res.json())
       .then((data) => {
@@ -44,6 +45,18 @@ const ExamDetails = () => {
       .catch(() => {
         setError("Erreur lors du chargement des détails de l'examen.");
         setLoading(false);
+      });
+
+    
+    fetch(`/api/check-submission?id_exam=${id_exam}&id_etudiant=1`)
+      .then((res) => res.json())
+      .then((data) => {
+        if (data.submitted) {
+          setSubmissionSuccess(true);
+        }
+      })
+      .catch(() => {
+        console.error("Erreur lors de la vérification de la soumission.");
       });
   }, [id_exam]);
 
@@ -125,14 +138,11 @@ const ExamDetails = () => {
       <div className="flex flex-col md:flex-row gap-8">
         <div className="md:w-1/2 bg-gray-800 p-6 rounded-lg shadow-md">
           <h1 className="text-3xl font-bold text-white">{exam.sujet}</h1>
-          <p className="text-gray-400 mt-2">
-            📅 <strong>Date :</strong> {new Date(exam.date_exam).toLocaleDateString()}
-          </p>
+          <p className="text-gray-400 mt-2">📅 <strong>Date :</strong> {new Date(exam.date_exam).toLocaleDateString()}</p>
           <p className="mt-4 text-gray-300">{exam.description}</p>
         </div>
-        
         <div className="md:w-1/2 bg-gray-800 p-6 rounded-lg shadow-md">
-          <h2 className="text-xl font-bold text-white">📎 Soumettre votre réponse PDF (Chacun rend le même fichier dans le cas d'un travail de groupe)</h2>
+          <h2 className="text-xl font-bold text-white">📎 Soumettre votre réponse PDF</h2>
           <p className="text-gray-400 mb-4">(5MB max)</p>
           <form onSubmit={handleSubmit} className="flex flex-col gap-4">
             <input
@@ -145,11 +155,7 @@ const ExamDetails = () => {
             <button
               type="submit"
               className={`px-4 py-2 rounded-md text-white transition-all ${
-                submissionSuccess
-                  ? "bg-green-600 cursor-not-allowed"
-                  : isSubmitting
-                  ? "bg-gray-500 cursor-not-allowed"
-                  : "bg-blue-600 hover:bg-blue-700"
+                submissionSuccess ? "bg-green-600 cursor-not-allowed" : isSubmitting ? "bg-gray-500 cursor-not-allowed" : "bg-blue-600 hover:bg-blue-700"
               }`}
               disabled={isSubmitting || submissionSuccess}
             >
@@ -159,7 +165,6 @@ const ExamDetails = () => {
           {message && <p className="mt-2 text-yellow-400">{message}</p>}
         </div>
       </div>
-
       <Footer backgroundColor="bg-gray-900" />
     </div>
   );
