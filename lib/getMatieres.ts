@@ -1,12 +1,11 @@
 import mysql from "mysql2/promise";
 
-// Type pour les matières
 interface Matiere {
   id: number;
   name: string;
 }
 
-// Créer un pool de connexions (configuration à adapter si besoin)
+
 const pool = mysql.createPool({
   host: "mysql-n0reyni.alwaysdata.net",
   user: "n0reyni_sall",

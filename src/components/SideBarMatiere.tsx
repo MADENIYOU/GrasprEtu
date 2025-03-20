@@ -10,7 +10,6 @@ import Link from "next/link";
 import { Avatar, AvatarImage, AvatarFallback } from "@/components/ui/avatar";
 import { Button } from "@/components/ui/button";
 
-// Type pour les matieres
 interface Class {
   id: string;
   name: string;
@@ -28,7 +27,6 @@ const Sidebar = ({ matieres }: SidebarProps) => {
 
   return (
     <div className="flex flex-col w-full bg-gray-900">
-      {/* Header */}
       <header className="w-full bg-gray-900">
         <nav className="left-0 pt-5 px-4 mx-auto max-w-screen-xl sm:px-8 sm:flex sm:space-x-6">
           <h1 className="text-white font-bold text-4xl xl:text-5xl">
@@ -52,7 +50,6 @@ const Sidebar = ({ matieres }: SidebarProps) => {
       </header>
 
       <div className="flex">
-        {/* Sidebar */}
         <div className={`lg:block absolute lg:static bottom-0 left-0 top-0 right-0 bg-black/70 z-10 lg:bg-transparent transition-all duration-200 ease-in-out ${toggle ? "block" : "hidden"}`}>
           <Button
             variant="ghost"

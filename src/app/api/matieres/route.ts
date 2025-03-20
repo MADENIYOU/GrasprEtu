@@ -1,5 +1,5 @@
 import { NextResponse } from "next/server";
-import { getMatieres } from "../../../../lib/getMatieres"; // Chemin vers votre fonction getMatieres
+import { getMatieres } from "../../../../lib/getMatieres";
 
 export async function GET(request: Request) {
   try {

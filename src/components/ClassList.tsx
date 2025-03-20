@@ -33,7 +33,6 @@ const MatiereList: React.FC<MatiereListProps> = ({ matieres }) => {
   );
 };
 
-// Récupérer les matieres côté serveur
 export const getServerSideProps = async () => {
   const matieresFromDb = await getMatieres(3);
   console.log(matieresFromDb);
@@ -41,16 +40,16 @@ export const getServerSideProps = async () => {
   const matieres: Matiere[] = matieresFromDb.map((matiere: { id: any; name: any; }) => ({
     id: matiere.id,
     name: matiere.name,
-    description: `Matière : ${matiere.name}`, // Description dynamique
-    imageUrl: "https://loremflickr.com/g/320/240/book", // Image générique pour les matières
-    redirectUrl: `/matiere/${matiere.id}`, // URL de redirection dynamique pour la matière
+    description: `Matière : ${matiere.name}`,
+    imageUrl: "https://loremflickr.com/g/320/240/book",
+    redirectUrl: `/matiere/${matiere.id}`,
   }));
 
   console.log(matieres);
 
   return {
     props: {
-      matieres, // Passer les matieres en tant que props
+      matieres,
     },
   };
 };

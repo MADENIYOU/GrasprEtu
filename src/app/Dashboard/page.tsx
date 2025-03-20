@@ -1,10 +1,9 @@
-// app/StudentDashboard/page.tsx
 "use client";
 
 import { useEffect, useState } from "react";
 import { Card, CardHeader, CardTitle, CardContent } from "@/components/ui/card";
 import { Button } from "@/components/ui/button";
-import { Bar } from "react-chartjs-2"; // Assurez-vous d'avoir installé chart.js et react-chartjs-2
+import { Bar } from "react-chartjs-2";
 import { Chart as ChartJS, CategoryScale, LinearScale, BarElement, Title, Tooltip, Legend } from "chart.js";
 
 ChartJS.register(CategoryScale, LinearScale, BarElement, Title, Tooltip, Legend);
@@ -17,7 +16,6 @@ export default function StudentDashboard() {
   const [grades, setGrades] = useState<GradeData[]>([]);
 
   useEffect(() => {
-    // Récupérer les données depuis l'API
     async function fetchGrades() {
       const response = await fetch("/api/grades");
       const data = await response.json();
@@ -27,15 +25,15 @@ export default function StudentDashboard() {
     fetchGrades();
   }, []);
 
-  // Préparer les données pour le graphique
+  
   const chartData = {
-    labels: grades.map((_, index) => `Examen ${index + 1}`), // Générer des labels pour chaque examen
+    labels: grades.map((_, index) => `Examen ${index + 1}`),
     datasets: [
       {
         label: "Notes de l'étudiant",
-        data: grades.map((grade) => grade.value), // Notes
-        backgroundColor: "rgba(75, 192, 192, 0.6)", // Couleur des barres
-        borderColor: "rgba(75, 192, 192, 1)", // Bordure des barres
+        data: grades.map((grade) => grade.value), 
+        backgroundColor: "rgba(75, 192, 192, 0.6)",
+        borderColor: "rgba(75, 192, 192, 1)",
         borderWidth: 1,
       },
     ],
@@ -52,7 +50,7 @@ export default function StudentDashboard() {
     scales: {
       y: {
         min: 0,
-        max: 20, // L'ordonnée de 0 à 20
+        max: 20,
         ticks: {
           stepSize: 1,
         },

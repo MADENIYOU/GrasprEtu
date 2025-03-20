@@ -17,7 +17,6 @@ import { Button } from "@/components/ui/button";
 import ClassList from "@/components/ClassList";
 import Header from "./Header";
 
-// Type pour les matieres
 interface Class {
   id: string;
   name: string;
@@ -35,12 +34,10 @@ const Sidebar = ({ matieres }: SidebarProps) => {
 
   return (
     <div className="flex flex-col w-full bg-gray-900">
-      {/* Header */}
       
       <Header />
 
       <div className="flex">
-        {/* Sidebar */}
         <div className={`lg:block absolute lg:static bottom-0 left-0 top-0 right-0 bg-black/70 z-10 lg:bg-transparent transition-all duration-200 ease-in-out ${toggle ? "block" : "hidden"}`}>
           <Button
             variant="ghost"
@@ -85,7 +82,6 @@ const Sidebar = ({ matieres }: SidebarProps) => {
           </div>
         </div>
 
-        {/* Contenu principal (ClassList) */}
         <div className="flex-1 p-8">
           <div>
             <ClassList matieres={matieres} />

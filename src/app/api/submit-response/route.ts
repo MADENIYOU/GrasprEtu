@@ -3,7 +3,7 @@ import mysql from "mysql2/promise";
 import { writeFile, mkdir } from "fs/promises";
 import path from "path";
 
-// Configuration de la connexion MySQL
+
 const dbConfig = {
   host: "mysql-n0reyni.alwaysdata.net",
   user: "n0reyni_sall",
@@ -13,18 +13,17 @@ const dbConfig = {
 
 export async function POST(req: NextRequest) {
   try {
-    // Vérification du type de contenu
     if (!req.headers.get("content-type")?.includes("multipart/form-data")) {
       return NextResponse.json({ success: false, message: "Type de contenu invalide." }, { status: 400 });
     }
 
-    // Extraction des données du formulaire
+    
     const formData = await req.formData();
     const file = formData.get("file") as File;
     const id_exam = formData.get("id_exam") as string;
-    const id_etudiant = 1; // Récupérer dynamiquement selon l'utilisateur connecté
+    const id_etudiant = 1; 
 
-    // Vérifications
+    
     if (!file) {
       return NextResponse.json({ success: false, message: "Aucun fichier fourni." }, { status: 400 });
     }
@@ -32,16 +31,16 @@ export async function POST(req: NextRequest) {
       return NextResponse.json({ success: false, message: "L'ID de l'examen est invalide." }, { status: 400 });
     }
 
-    // Définir le chemin du fichier
+    
     const uploadDir = path.join(process.cwd(), "public/uploads");
-    await mkdir(uploadDir, { recursive: true }); // Créer le dossier s'il n'existe pas
+    await mkdir(uploadDir, { recursive: true });
     const filePath = path.join(uploadDir, file.name);
     
-    // Lire le contenu du fichier en buffer et l'enregistrer
+    
     const fileBuffer = Buffer.from(await file.arrayBuffer());
     await writeFile(filePath, fileBuffer);
 
-    // Connexion à la base de données et insertion des informations
+    
     const connection = await mysql.createConnection(dbConfig);
     await connection.execute(
       "INSERT INTO copies (id_etudiant, id_examen, fichier_pdf) VALUES (?, ?, ?)",

@@ -1,7 +1,7 @@
 "use client";
 
 import React from "react";
-import Sidebar from "./Sidebar.client"; // Importez le composant client
+import Sidebar from "./Sidebar.client";
 import { getMatieres } from "../../lib/getMatieres";
 
 

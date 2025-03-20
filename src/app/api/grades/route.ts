@@ -1,4 +1,4 @@
-// app/api/student-grades/route.ts
+
 import { NextResponse } from "next/server";
 import { getStudentGrades } from "../../../../lib/getNotes";
 

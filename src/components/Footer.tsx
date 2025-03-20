@@ -27,7 +27,6 @@ const Footer = ({ backgroundColor, textColor, iconColor }: FooterProps) => {
             </p>
           </div>
 
-          {/* Liens et icônes de réseaux sociaux */}
           <div className="items-center mt-8 xl:mt-0 xl:flex xl:justify-end xl:space-x-8">
             <ul className="flex flex-wrap items-center justify-center gap-x-8 gap-y-3 xl:justify-end">
               <li>
@@ -72,10 +71,8 @@ const Footer = ({ backgroundColor, textColor, iconColor }: FooterProps) => {
               </li>
             </ul>
 
-            {/* Séparateur */}
             <div className="w-full h-px mt-8 mb-5 xl:w-px xl:m-0 xl:h-6 bg-gray-50/20"></div>
 
-            {/* Icônes de réseaux sociaux */}
             <ul className="flex items-center justify-center space-x-8 xl:justify-end">
               <li>
                 <a

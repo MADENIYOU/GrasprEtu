@@ -11,7 +11,7 @@ interface Exam {
 }
 
 const ExamList = () => {
-  const { id } = useParams(); // Récupérer l'ID de la matière depuis l'URL
+  const { id } = useParams();
   const router = useRouter();
   const [exams, setExams] = useState<Exam[]>([]);
   const [loading, setLoading] = useState<boolean>(true);

@@ -4,7 +4,6 @@ const Connexion: React.FC = () => {
     return (
         <section className="bg-gray-900 py-16">
             <div className=" max-w-6xl mx-auto">
-                {/* Formulaire dans une card */}
                 <div className="bg-white shadow-lg rounded-2xl p-6 transition-all duration-300 hover:shadow-xl">
                     <h2 className="text-3xl font-bold leading-tight text-black sm:text-4xl">CONNEXION</h2>
                     <p className="mt-2 text-base text-gray-600">Pas encore de compte? <a href="/inscription" className="font-medium text-blue-600 transition-all duration-200 hover:text-blue-700 hover:underline">S'inscrire</a></p>

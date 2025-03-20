@@ -5,7 +5,6 @@ import Footer from "@/components/Footer";
 export default function Home() {
   return (
     <div className="bg-gray-900 min-h-screen flex flex-col">
-      {/* Header */}
       <header className="w-full">
         <nav className="items-center pt-5 px-4 mx-auto max-w-screen-xl sm:px-8 sm:flex sm:space-x-6">
         <h1 className="text-white font-bold text-4xl xl:text-5xl">
@@ -47,11 +46,9 @@ export default function Home() {
         </nav>
       </header>
 
-      {/* Main Content */}
+      
       <section className="mt-24 mx-auto max-w-screen-xl pb-12 px-4 items-center lg:flex md:px-8 flex-1">
-        {/* Texte et boutons à gauche */}
         <div className="space-y-4 flex-1 sm:text-center lg:text-left">
-          {/* GrasprEval avec animation */}
           <h1 className="text-white font-bold text-4xl xl:text-5xl">
             <span className="bg-gradient-to-r from-purple-500 to-blue-500 text-transparent bg-clip-text">
               Graspr
@@ -61,7 +58,6 @@ export default function Home() {
             </span>
           </h1>
 
-          {/* Texte animé */}
           <ol className="list-inside list-decimal text-sm/6 text-left font-[family-name:var(--font-geist-mono)]">
             <div className="mb-2 tracking-[-.01em] text-lg">
               <TypingAnimations text="Une plateforme conviviale de centralisation de vos travaux " delay={0.5}/>
@@ -71,7 +67,6 @@ export default function Home() {
             </div>
           </ol>
 
-          {/* Boutons */}
           <div className="pt-10 items-center justify-center space-y-3 sm:space-x-6 sm:space-y-0 sm:flex lg:justify-start">
             <a
               href="/Connexion"
@@ -97,7 +92,6 @@ export default function Home() {
         </div>
       </section>
 
-      {/* Footer */}
       <Footer backgroundColor="bg-gray-900" />
     </div>
   );

@@ -122,10 +122,7 @@ const ExamDetails = () => {
   return (
     <div className="container mx-auto p-6 w-full flex flex-col bg-gray-900">
       <Header />
-
-      {/* Section principale avec deux colonnes */}
       <div className="flex flex-col md:flex-row gap-8">
-        {/* Colonne de gauche : Détails de l'examen */}
         <div className="md:w-1/2 bg-gray-800 p-6 rounded-lg shadow-md">
           <h1 className="text-3xl font-bold text-white">{exam.sujet}</h1>
           <p className="text-gray-400 mt-2">
@@ -133,8 +130,7 @@ const ExamDetails = () => {
           </p>
           <p className="mt-4 text-gray-300">{exam.description}</p>
         </div>
-
-        {/* Colonne de droite : Formulaire */}
+        
         <div className="md:w-1/2 bg-gray-800 p-6 rounded-lg shadow-md">
           <h2 className="text-xl font-bold text-white">📎 Soumettre votre réponse PDF (Chacun rend le même fichier dans le cas d'un travail de groupe)</h2>
           <p className="text-gray-400 mb-4">(5MB max)</p>

@@ -27,7 +27,6 @@ export function BarChartVertical() {
 
   const data = datasets[currentIndex];
 
-  // Scales
   const xScale = scaleBand()
     .domain(data.map((d) => d.key))
     .range([0, 100])
@@ -49,7 +48,6 @@ export function BarChartVertical() {
         } as CSSProperties
       }
     >
-      {/* Y Axis */}
       <div className="relative h-[calc(100%-var(--marginTop)-var(--marginBottom))] w-[var(--marginLeft)] translate-y-[var(--marginTop)] overflow-visible">
         {yScale.ticks(8).map((value, i) => (
           <div
@@ -62,10 +60,8 @@ export function BarChartVertical() {
         ))}
       </div>
 
-      {/* Chart Area */}
       <div className="absolute inset-0 h-[calc(100%-var(--marginTop)-var(--marginBottom))] w-[calc(100%-var(--marginLeft)-var(--marginRight))] translate-x-[var(--marginLeft)] translate-y-[var(--marginTop)] overflow-visible">
         <svg viewBox="0 0 100 100" className="overflow-visible w-full h-full" preserveAspectRatio="none">
-          {/* Grid lines */}
           {yScale.ticks(8).map((active, i) => (
             <g key={i} transform={`translate(0,${yScale(active)})`} className="text-gray-300/80 dark:text-gray-800/80">
               <line x1={0} x2={100} stroke="currentColor" strokeDasharray="6,5" strokeWidth={0.5} vectorEffect="non-scaling-stroke" />
@@ -73,7 +69,6 @@ export function BarChartVertical() {
           ))}
         </svg>
 
-        {/* X Axis (Labels) */}
         {data.map((entry, i) => {
           const xPosition = xScale(entry.key)! + xScale.bandwidth() / 2;
           return (
@@ -93,7 +88,6 @@ export function BarChartVertical() {
           );
         })}
 
-        {/* Bars */}
         {data.map((d, index) => {
           const barWidth = xScale.bandwidth();
           const barHeight = yScale(0) - yScale(d.value);
