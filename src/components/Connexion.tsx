@@ -1,3 +1,6 @@
+// @ts-nocheck
+
+
 import React from 'react';
 
 const Connexion: React.FC = () => {

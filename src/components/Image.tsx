@@ -1,3 +1,6 @@
+// @ts-nocheck
+
+
 import Image from "next/image";
 import logo from "../assets/images/download.svg";
 

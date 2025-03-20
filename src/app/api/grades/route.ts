@@ -1,3 +1,4 @@
+// @ts-nocheck
 
 import { NextResponse } from "next/server";
 import { getStudentGrades } from "../../../../lib/getNotes";

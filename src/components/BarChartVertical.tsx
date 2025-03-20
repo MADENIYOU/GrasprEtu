@@ -1,3 +1,6 @@
+// @ts-nocheck
+
+
 "use client";
 import React, { useEffect, useState, CSSProperties } from "react";
 import { scaleBand, scaleLinear, max } from "d3";

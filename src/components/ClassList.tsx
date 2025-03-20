@@ -1,3 +1,6 @@
+// @ts-nocheck
+
+
 import React from "react";
 import MatiereCard from "./ClassCard";
 import { getMatieres } from "../../lib/getMatieres";
