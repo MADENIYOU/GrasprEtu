@@ -5,8 +5,7 @@ export async function GET(req: Request) {
   const { searchParams } = new URL(req.url);
   const id_exam = searchParams.get("id_exam");
   const id_etudiant = searchParams.get("id_etudiant");
-
-  console.log(id_exam);
+  
 
   if (!id_exam) {
     return NextResponse.json({ error: "Paramètres manquants" }, { status: 400 });
