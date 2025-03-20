@@ -5,7 +5,6 @@ import { Input } from "@/components/ui/input";
 import { Button } from "@/components/ui/button";
 import { motion } from "framer-motion";
 import { Loader2 } from "lucide-react";
-import Link from "next/link"; 
 import Header from "@/components/Header";
 import Footer from "@/components/Footer";
 
@@ -90,7 +89,6 @@ export default function Chat() {
         </div>
 
 
-      {/* Input & Send Button (Fixed at Bottom) */}
       <div className="flex items-center space-x-4 p-4 border-t-2 border-white bg-gray-700">
         <Input  type="text" value={message} onChange={(e) => setMessage(e.target.value)} placeholder="Posez une question" className="flex-grow py-7 text-5xl px-5 text-lg border border-gray-300 bg-gray-700 text-white" />
         <Button onClick={sendMessage} disabled={loading} className="bg-gray-900 text-white text-lg py-3 px-8 shadow-xl transition-all duration-200 transform hover:scale-105 focus:outline-none">
@@ -98,7 +96,6 @@ export default function Chat() {
         </Button>
       </div>
 
-      {/* Error Message */}
       {error && <p className="text-red-500 text-sm text-center mt-2">{error}</p>}
 
       <Footer backgroundColor="bg-gray-900" />
